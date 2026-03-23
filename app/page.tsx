@@ -2,7 +2,7 @@
 "use client";
 
 import content from "../data/content.json";
-import { FloatingNav } from "@/components/ui/floating-nav";
+import { MinimalNav } from "@/components/ui/minimal-nav";
 import { BentoGrid, BentoCard } from "@/components/ui/bento-grid";
 import { GoogleReviewBadge } from "@/components/ui/google-review-badge";
 import { NumberGrid } from "@/components/ui/number-grid";
@@ -24,8 +24,8 @@ const serviceIcons = [Wrench, Cog, Droplets, Disc, CircleDot, Truck];
 export default function Page() {
   return (
     <main className="min-h-screen bg-background text-foreground">
-      {/* FLOATING NAV */}
-      <FloatingNav
+      {/* MINIMAL NAV */}
+      <MinimalNav
         logo={<span className="font-bold text-lg"><span style={{ color: "var(--theme-accent)" }}>Crabtree</span> Automatics</span>}
         items={[
           { label: "Reviews", href: "#reviews" },
@@ -34,6 +34,8 @@ export default function Page() {
           { label: "About", href: "#about" },
           { label: "Hours", href: "#hours" },
         ]}
+        ctaText="Call Now"
+        ctaHref="tel:8188459117"
       />
 
       {/* HERO — INLINE (plain HTML + CSS animations, no Framer Motion) */}
@@ -91,7 +93,6 @@ export default function Page() {
               { value: 10000, suffix: "+", label: "Transmissions Rebuilt" },
               { value: 100, suffix: "%", label: "Satisfaction Guaranteed" },
             ]}
-            columns={4}
             className="mb-16"
           />
 
