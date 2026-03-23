@@ -3,7 +3,6 @@
 
 import content from "../data/content.json";
 import { MinimalNav } from "@/components/ui/minimal-nav";
-import { HeroCentered } from "@/components/ui/hero-centered";
 import { TrustBadges } from "@/components/ui/trust-badges";
 import { StatsSection } from "@/components/ui/stats-section";
 import { TestimonialGrid } from "@/components/ui/testimonial-grid";
@@ -39,16 +38,36 @@ export default function Page() {
         ctaHref={"tel:" + content.contact.phone.replace(/[^0-9]/g, "")}
       />
 
-      {/* HERO — HeroCentered with solid text, no gradient-clip issues */}
-      <HeroCentered
-        label="5-Star Rated Transmission Shop"
-        heading={content.hero.heading}
-        subheading={content.hero.subheading}
-        ctaText={content.hero.ctaText}
-        ctaHref={content.hero.ctaLink}
-        secondaryCtaText="View Services"
-        secondaryCtaHref="#services"
-      />
+      {/* HERO — Pure CSS, no Framer Motion */}
+      <section className="min-h-[85vh] flex flex-col items-center justify-center px-6 text-center">
+        <span
+          className="mb-6 inline-block rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white animate-hero-fade-in"
+          style={{ backgroundColor: "var(--theme-accent)" }}
+        >
+          5-Star Rated Transmission Shop
+        </span>
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight max-w-5xl animate-hero-fade-in">
+          {content.hero.heading}
+        </h1>
+        <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl animate-hero-fade-in-delayed">
+          {content.hero.subheading}
+        </p>
+        <div className="mt-8 flex flex-wrap justify-center gap-4 animate-hero-fade-up">
+          <a
+            href={content.hero.ctaLink}
+            className="inline-flex items-center rounded-lg px-7 py-3 font-medium text-white transition-opacity hover:opacity-90"
+            style={{ backgroundColor: "var(--theme-accent)" }}
+          >
+            {content.hero.ctaText}
+          </a>
+          <a
+            href="#services"
+            className="inline-flex items-center rounded-lg border border-border bg-background px-7 py-3 font-medium transition-colors hover:bg-muted"
+          >
+            View Services
+          </a>
+        </div>
+      </section>
 
       {/* TRUST BADGES */}
       <section className="py-12 md:py-16">
