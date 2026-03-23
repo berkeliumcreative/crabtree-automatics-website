@@ -85,7 +85,7 @@ export default function Page() {
             align="center"
           />
           <div className="mt-6 mb-12 flex justify-center">
-            <GoogleReviewBadge />
+            <GoogleReviewBadge rating={5.0} totalReviews={27} />
           </div>
           <TestimonialGrid
             testimonials={content.reviews.map((r) => ({

@@ -111,11 +111,11 @@
     "email": "info@crabtreeautomatics.com",
     "address": "4307 W Magnolia Blvd, Burbank, CA 91505",
     "hours": {
-      "Monday": "8:30 AM – 5:30 PM",
-      "Tuesday": "8:30 AM – 5:30 PM",
-      "Wednesday": "8:30 AM – 5:30 PM",
-      "Thursday": "8:30 AM – 5:30 PM",
-      "Friday": "8:30 AM – 5:30 PM",
+      "Monday": "8:30 AM - 5:30 PM",
+      "Tuesday": "8:30 AM - 5:30 PM",
+      "Wednesday": "8:30 AM - 5:30 PM",
+      "Thursday": "8:30 AM - 5:30 PM",
+      "Friday": "8:30 AM - 5:30 PM",
       "Saturday": "Closed",
       "Sunday": "Closed"
     },
