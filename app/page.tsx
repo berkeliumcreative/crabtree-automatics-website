@@ -3,7 +3,7 @@
 
 import content from "../data/content.json";
 import { MinimalNav } from "@/components/ui/minimal-nav";
-import { HeroGradient } from "@/components/ui/hero-gradient";
+import { HeroCentered } from "@/components/ui/hero-centered";
 import { TrustBadges } from "@/components/ui/trust-badges";
 import { StatsSection } from "@/components/ui/stats-section";
 import { TestimonialGrid } from "@/components/ui/testimonial-grid";
@@ -39,12 +39,15 @@ export default function Page() {
         ctaHref={"tel:" + content.contact.phone.replace(/[^0-9]/g, "")}
       />
 
-      {/* HERO */}
-      <HeroGradient
+      {/* HERO — HeroCentered with solid text, no gradient-clip issues */}
+      <HeroCentered
+        label="5-Star Rated Transmission Shop"
         heading={content.hero.heading}
         subheading={content.hero.subheading}
         ctaText={content.hero.ctaText}
         ctaHref={content.hero.ctaLink}
+        secondaryCtaText="View Services"
+        secondaryCtaHref="#services"
       />
 
       {/* TRUST BADGES */}
