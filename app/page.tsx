@@ -218,9 +218,9 @@ export default function Home() {
 
       {/* Footer */}
       <FooterColumns
-        brand={content.businessName}
+        businessName={content.businessName}
         columns={footerColumns}
-        copyright={`© ${new Date().getFullYear()} ${content.businessName}. All rights reserved.`}
+        description={content.tagline}
       />
     </main>
   );
