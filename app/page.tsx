@@ -6,95 +6,40 @@ import { MinimalNav } from "@/components/ui/minimal-nav";
 import { HeroGradient } from "@/components/ui/hero-gradient";
 import { TrustBadges } from "@/components/ui/trust-badges";
 import { StatsSection } from "@/components/ui/stats-section";
-import { SectionHeading } from "@/components/ui/section-heading";
-import { TestimonialMarquee } from "@/components/ui/testimonial-marquee";
-import { ServiceList } from "@/components/ui/service-list";
+import { TestimonialGrid } from "@/components/ui/testimonial-grid";
+import { ServiceGrid } from "@/components/ui/service-grid";
 import { StepsSection } from "@/components/ui/steps-section";
-import { FAQSection } from "@/components/ui/faq-section";
 import { HoursTable } from "@/components/ui/hours-table";
+import { FAQSection } from "@/components/ui/faq-section";
+import { BookingPrompt } from "@/components/ui/booking-prompt";
 import { MapEmbed } from "@/components/ui/map-embed";
-import { PhoneCTA } from "@/components/ui/phone-cta";
-import { FooterColumns } from "@/components/ui/footer-columns";
+import { FooterGradient } from "@/components/ui/footer-gradient";
+import { SectionHeading } from "@/components/ui/section-heading";
+import { GoogleReviewBadge } from "@/components/ui/google-review-badge";
+import { Shield, Wrench, Clock, CheckCircle, Award, Settings } from "lucide-react";
 
-const navItems = [
-  { label: "Reviews", href: "#reviews" },
-  { label: "Services", href: "#services" },
-  { label: "About", href: "#about" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Contact", href: "#contact" },
-];
-
-const trustBadges = [
-  { text: "5.0 ★ Perfect Rating" },
-  { text: "30+ Years Experience" },
-  { text: "Transmission Specialists" },
-  { text: "Honest Pricing Guarantee" },
-];
-
-const steps = [
-  {
-    title: "Bring It In",
-    description: "Drop off your vehicle or call to schedule. We'll listen to your concerns and do a thorough inspection.",
-  },
-  {
-    title: "Honest Diagnosis",
-    description: "We'll identify the exact problem and give you a clear, upfront estimate — no hidden fees or unnecessary upsells.",
-  },
-  {
-    title: "Expert Repair",
-    description: "Our experienced technicians fix it right the first time using quality parts and proven techniques.",
-  },
-  {
-    title: "Drive with Confidence",
-    description: "Pick up your vehicle running smoothly, backed by our warranty and decades of trusted service.",
-  },
-];
-
-const footerColumns = [
-  {
-    title: "Services",
-    links: [
-      { label: "Transmission Repair", href: "#services" },
-      { label: "Transmission Rebuild", href: "#services" },
-      { label: "Diagnostics", href: "#services" },
-      { label: "General Auto Repair", href: "#services" },
-    ],
-  },
-  {
-    title: "Company",
-    links: [
-      { label: "About Us", href: "#about" },
-      { label: "Reviews", href: "#reviews" },
-      { label: "FAQ", href: "#faq" },
-      { label: "Facebook", href: content.social.facebook },
-    ],
-  },
-  {
-    title: "Contact",
-    links: [
-      { label: content.contact.phone, href: "tel:+18188459117" },
-      { label: content.contact.address, href: "#contact" },
-      { label: "Mon-Fri: 8:30 AM - 5:30 PM", href: "#contact" },
-    ],
-  },
-];
-
-export default function Home() {
-  const testimonials = content.reviews.map((r: any) => ({
-    quote: r.text,
-    author: r.name,
-    rating: r.rating,
-  }));
-
+export default function Page() {
   return (
-    <main className="bg-background text-foreground">
+    <main className="min-h-screen bg-background text-foreground">
+      {/* NAVIGATION */}
       <MinimalNav
-        logo={content.businessName}
-        items={navItems}
+        logo={
+          <span className="text-lg font-bold tracking-tight">
+            <span style={{ color: "var(--theme-accent)" }}>Crabtree</span> Automatics
+          </span>
+        }
+        items={[
+          { label: "Services", href: "#services" },
+          { label: "Reviews", href: "#reviews" },
+          { label: "Process", href: "#process" },
+          { label: "FAQ", href: "#faq" },
+          { label: "Hours", href: "#hours" },
+        ]}
         ctaText="Call Now"
-        ctaHref="tel:+18188459117"
+        ctaHref={"tel:" + content.contact.phone.replace(/[^0-9]/g, "")}
       />
 
+      {/* HERO */}
       <HeroGradient
         heading={content.hero.heading}
         subheading={content.hero.subheading}
@@ -102,124 +47,191 @@ export default function Home() {
         ctaHref={content.hero.ctaLink}
       />
 
-      {/* Trust Badges */}
-      <section className="py-10 md:py-14 bg-card border-b border-border">
+      {/* TRUST BADGES */}
+      <section className="py-12 md:py-16">
         <div className="max-w-6xl mx-auto px-6">
-          <TrustBadges badges={trustBadges} />
+          <TrustBadges
+            badges={[
+              { icon: <Shield className="w-5 h-5" />, text: "Warranty on All Repairs" },
+              { icon: <Award className="w-5 h-5" />, text: "5.0 Star Rating" },
+              { icon: <Wrench className="w-5 h-5" />, text: "Transmission Specialists" },
+              { icon: <Clock className="w-5 h-5" />, text: "Fast Turnaround" },
+              { icon: <CheckCircle className="w-5 h-5" />, text: "Honest Diagnostics" },
+            ]}
+          />
         </div>
       </section>
 
-      {/* Stats */}
+      {/* STATS */}
       <section className="py-20 md:py-28">
         <div className="max-w-6xl mx-auto px-6">
-          <StatsSection stats={content.stats} />
+          <StatsSection
+            stats={[
+              { value: 27, label: "5-Star Reviews", suffix: "+" },
+              { value: 5, label: "Star Rating", suffix: ".0" },
+              { value: 1000, label: "Transmissions Serviced", suffix: "+" },
+              { value: 100, label: "Customer Satisfaction", suffix: "%" },
+            ]}
+          />
         </div>
       </section>
 
-      {/* Reviews */}
+      {/* REVIEWS */}
       <section id="reviews" className="py-20 md:py-28 bg-card">
         <div className="max-w-6xl mx-auto px-6">
           <SectionHeading
             title="What Our Customers Say"
-            subtitle="27 five-star reviews and counting — our reputation speaks for itself."
+            subtitle="Real reviews from real customers who trusted us with their transmissions"
+            align="center"
           />
-        </div>
-        <div className="mt-12">
-          <TestimonialMarquee testimonials={testimonials} />
+          <div className="mt-6 mb-12 flex justify-center">
+            <GoogleReviewBadge />
+          </div>
+          <TestimonialGrid
+            testimonials={content.reviews.map((r) => ({
+              quote: r.text,
+              author: r.name,
+              rating: r.rating,
+            }))}
+            columns={3}
+          />
         </div>
       </section>
 
-      {/* Services */}
+      {/* SERVICES */}
       <section id="services" className="py-20 md:py-28">
         <div className="max-w-6xl mx-auto px-6">
           <SectionHeading
-            title="Our Services"
-            subtitle="Specialized transmission work and complete auto repair — everything your vehicle needs under one roof."
+            label="What We Do"
+            title="Transmission Services"
+            subtitle="From diagnostics to full rebuilds, we handle every aspect of transmission repair"
+            align="center"
           />
           <div className="mt-12">
-            <ServiceList services={content.services} />
+            <ServiceGrid
+              services={content.services.map((s, i) => ({
+                title: s.title,
+                description: s.description,
+                icon: [
+                  <Settings key={0} className="w-6 h-6" style={{ color: "var(--theme-accent)" }} />,
+                  <Wrench key={1} className="w-6 h-6" style={{ color: "var(--theme-accent)" }} />,
+                  <CheckCircle key={2} className="w-6 h-6" style={{ color: "var(--theme-accent)" }} />,
+                  <Shield key={3} className="w-6 h-6" style={{ color: "var(--theme-accent)" }} />,
+                  <Settings key={4} className="w-6 h-6" style={{ color: "var(--theme-accent)" }} />,
+                  <Wrench key={5} className="w-6 h-6" style={{ color: "var(--theme-accent)" }} />,
+                ][i],
+              }))}
+              columns={3}
+              variant="card"
+            />
           </div>
         </div>
       </section>
 
-      {/* How It Works */}
-      <section className="py-20 md:py-28 bg-card">
+      {/* PROCESS / HOW IT WORKS */}
+      <section id="process" className="py-20 md:py-28 bg-card">
         <div className="max-w-6xl mx-auto px-6">
           <SectionHeading
             title="How It Works"
-            subtitle="Simple, transparent service from start to finish."
+            subtitle="Our straightforward process from diagnosis to getting you back on the road"
+            align="center"
           />
           <div className="mt-12">
-            <StepsSection steps={steps} />
+            <StepsSection
+              steps={[
+                {
+                  title: "Bring It In",
+                  description: "Drop off your vehicle or call ahead. We'll listen to your concerns and schedule a convenient time for diagnostics.",
+                },
+                {
+                  title: "Expert Diagnosis",
+                  description: "We run computer-assisted and hands-on tests to pinpoint the exact issue. You get a clear explanation and honest estimate.",
+                },
+                {
+                  title: "Precision Repair",
+                  description: "Our specialists fix the problem using quality parts and proven techniques — no shortcuts, no unnecessary upsells.",
+                },
+                {
+                  title: "Road Ready",
+                  description: "We test drive your vehicle, verify everything shifts smoothly, and hand you back the keys with a warranty on the work.",
+                },
+              ]}
+              variant="horizontal"
+            />
           </div>
         </div>
       </section>
 
-      {/* About */}
+      {/* ABOUT SECTION */}
       <section id="about" className="py-20 md:py-28">
         <div className="max-w-6xl mx-auto px-6">
-          <SectionHeading title={content.about.heading} />
-          <div className="mt-8 max-w-3xl mx-auto space-y-6">
-            {content.about.paragraphs.map((p: string, i: number) => (
-              <p key={i} className="text-muted-foreground text-lg leading-relaxed">
-                {p}
-              </p>
-            ))}
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <SectionHeading
+                label="About Us"
+                title={content.about.heading}
+                align="left"
+              />
+              {content.about.paragraphs.map((p, i) => (
+                <p key={i} className="mt-4 text-muted-foreground leading-relaxed text-lg">
+                  {p}
+                </p>
+              ))}
+            </div>
+            <div className="space-y-4">
+              {content.about.highlights.map((h, i) => (
+                <div key={i} className="flex items-center gap-3 p-4 rounded-lg bg-card border border-border">
+                  <CheckCircle className="w-5 h-5 flex-shrink-0" style={{ color: "var(--theme-accent)" }} />
+                  <span className="font-medium">{h}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
+
+      {/* BOOKING CTA */}
+      <BookingPrompt
+        heading="Transmission Trouble? Let's Fix It."
+        description="Call Crabtree Automatics for an honest diagnosis and expert repair. We'll get you back on the road."
+        phone={content.contact.phone}
+        ctaText="Call (818) 845-9117"
+        ctaHref={"tel:" + content.contact.phone.replace(/[^0-9]/g, "")}
+      />
 
       {/* FAQ */}
       <section id="faq" className="py-20 md:py-28 bg-card">
         <div className="max-w-6xl mx-auto px-6">
-          <SectionHeading
+          <FAQSection
             title="Frequently Asked Questions"
-            subtitle="Answers to common questions about transmission repair and our process."
+            subtitle="Common questions about our transmission repair services"
+            items={content.faq}
           />
-          <div className="mt-12 max-w-3xl mx-auto">
-            <FAQSection items={content.faq} />
-          </div>
         </div>
       </section>
 
-      {/* Phone CTA */}
-      <section className="py-20 md:py-28 text-center">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Get Your Transmission Fixed?</h2>
-          <p className="text-muted-foreground mb-8">Call us today for honest advice and a free estimate.</p>
-          <PhoneCTA phone={content.contact.phone} text="Call Now" />
-        </div>
-      </section>
-
-      {/* Contact / Hours / Map */}
-      <section id="contact" className="py-20 md:py-28 bg-card">
+      {/* HOURS + MAP */}
+      <section id="hours" className="py-20 md:py-28">
         <div className="max-w-6xl mx-auto px-6">
           <SectionHeading
-            title="Visit Us"
-            subtitle="Located on Magnolia Boulevard in the heart of Burbank."
+            title="Visit Our Shop"
+            subtitle="Conveniently located on Magnolia Blvd in Burbank"
+            align="center"
           />
           <div className="mt-12 grid md:grid-cols-2 gap-12">
-            <div>
-              <h3 className="text-xl font-semibold mb-4">Business Hours</h3>
-              <HoursTable hours={content.contact.hours} />
-              <div className="mt-8 space-y-2 text-muted-foreground">
-                <p>{content.contact.address}</p>
-                <p>{content.contact.phone}</p>
-                <p>{content.contact.email}</p>
-              </div>
-            </div>
-            <div>
-              <MapEmbed query={content.contact.mapEmbedQuery} />
-            </div>
+            <HoursTable hours={content.contact.hours} />
+            <MapEmbed query={content.contact.mapEmbedQuery} height={400} />
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <FooterColumns
+      {/* FOOTER */}
+      <FooterGradient
         businessName={content.businessName}
-        columns={footerColumns}
-        description={content.tagline}
+        tagline={content.tagline}
+        phone={content.contact.phone}
+        email={content.contact.email}
+        address={content.contact.address}
       />
     </main>
   );
