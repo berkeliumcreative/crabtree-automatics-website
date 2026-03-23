@@ -2,7 +2,7 @@
 "use client";
 
 import content from "../data/content.json";
-import { MinimalNav } from "@/components/ui/minimal-nav";
+import { FloatingNav } from "@/components/ui/floating-nav";
 import { BentoGrid, BentoCard } from "@/components/ui/bento-grid";
 import { GoogleReviewBadge } from "@/components/ui/google-review-badge";
 import { NumberGrid } from "@/components/ui/number-grid";
@@ -25,7 +25,7 @@ export default function Page() {
   return (
     <main className="min-h-screen bg-background text-foreground">
       {/* MINIMAL NAV */}
-      <MinimalNav
+      <FloatingNav
         logo={<span className="font-bold text-lg"><span style={{ color: "var(--theme-accent)" }}>Crabtree</span> Automatics</span>}
         items={[
           { label: "Reviews", href: "#reviews" },
@@ -38,7 +38,7 @@ export default function Page() {
         ctaHref="tel:8188459117"
       />
 
-      {/* HERO — INLINE (plain HTML + CSS animations, no Framer Motion) */}
+      {/* HERO â INLINE (plain HTML + CSS animations, no Framer Motion) */}
       <section className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28">
         <GridPattern className="opacity-40" size={32} />
         <div className="relative z-10 mx-auto max-w-5xl px-6">
@@ -47,7 +47,7 @@ export default function Page() {
               className="animate-hero-fade-in mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-medium"
             >
               <Star className="h-4 w-4" style={{ color: "var(--theme-accent)" }} />
-              <span>5.0 Stars on Google — 27 Reviews</span>
+              <span>5.0 Stars on Google â 27 Reviews</span>
             </div>
             <h1 className="animate-hero-fade-in text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight">
               Precision{" "}
@@ -78,7 +78,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* REVIEWS / TRUST — Stats + Google Badge + Testimonials */}
+      {/* REVIEWS / TRUST â Stats + Google Badge + Testimonials */}
       <section id="reviews" className="py-20 md:py-28">
         <div className="mx-auto max-w-6xl px-6">
           <div className="flex flex-col md:flex-row items-center justify-center gap-8 mb-16">
@@ -108,7 +108,7 @@ export default function Page() {
                 <ReviewStars rating={r.rating} size="md" />
                 <p className="mt-3 text-foreground italic leading-relaxed">&ldquo;{r.text}&rdquo;</p>
                 <p className="mt-3 text-sm font-semibold" style={{ color: "var(--theme-accent)" }}>
-                  — {r.name}
+                  â {r.name}
                 </p>
               </div>
             ))}
@@ -117,7 +117,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* SERVICES — BENTO GRID (asymmetric cards) */}
+      {/* SERVICES â BENTO GRID (asymmetric cards) */}
       <section id="services" className="relative py-20 md:py-28 bg-muted/30">
         <div className="mx-auto max-w-6xl px-6">
           <SectionHeading
@@ -156,7 +156,7 @@ export default function Page() {
         <div className="mx-auto max-w-4xl px-6">
           <SectionHeading
             title="How It Works"
-            subtitle="From diagnosis to road-ready — our straightforward process"
+            subtitle="From diagnosis to road-ready â our straightforward process"
             label="Our Process"
           />
 
@@ -164,7 +164,7 @@ export default function Page() {
             steps={[
               { title: "Bring It In", description: "Drop off your vehicle or call us to describe the issue. We'll schedule a convenient time for inspection." },
               { title: "Expert Diagnosis", description: "Our technicians run comprehensive computer diagnostics and physical inspections to identify the root cause." },
-              { title: "Transparent Quote", description: "We explain the problem in plain language, present your options, and give a written estimate — no surprises." },
+              { title: "Transparent Quote", description: "We explain the problem in plain language, present your options, and give a written estimate â no surprises." },
               { title: "Quality Repair", description: "We perform the repair using quality parts, test everything thoroughly, and get you back on the road." },
             ]}
             variant="vertical"
