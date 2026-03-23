@@ -74,7 +74,7 @@ const footerColumns = [
     links: [
       { label: content.contact.phone, href: "tel:+18188459117" },
       { label: content.contact.address, href: "#contact" },
-      { label: "Mon–Fri: 8:30 AM – 5:30 PM", href: "#contact" },
+      { label: "Mon-Fri: 8:30 AM - 5:30 PM", href: "#contact" },
     ],
   },
 ];
@@ -89,16 +89,17 @@ export default function Home() {
   return (
     <main className="bg-background text-foreground">
       <MinimalNav
-        brand={content.businessName}
+        logo={content.businessName}
         items={navItems}
-        cta={{ label: "Call Now", href: "tel:+18188459117" }}
+        ctaText="Call Now"
+        ctaHref="tel:+18188459117"
       />
 
       <HeroGradient
         heading={content.hero.heading}
         subheading={content.hero.subheading}
         ctaText={content.hero.ctaText}
-        ctaLink={content.hero.ctaLink}
+        ctaHref={content.hero.ctaLink}
       />
 
       {/* Trust Badges */}
@@ -176,19 +177,17 @@ export default function Home() {
             subtitle="Answers to common questions about transmission repair and our process."
           />
           <div className="mt-12 max-w-3xl mx-auto">
-            <FAQSection faqs={content.faq} />
+            <FAQSection items={content.faq} />
           </div>
         </div>
       </section>
 
       {/* Phone CTA */}
-      <section className="py-20 md:py-28">
+      <section className="py-20 md:py-28 text-center">
         <div className="max-w-6xl mx-auto px-6">
-          <PhoneCTA
-            heading="Ready to Get Your Transmission Fixed?"
-            subheading="Call us today for honest advice and a free estimate."
-            phone={content.contact.phone}
-          />
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Get Your Transmission Fixed?</h2>
+          <p className="text-muted-foreground mb-8">Call us today for honest advice and a free estimate.</p>
+          <PhoneCTA phone={content.contact.phone} text="Call Now" />
         </div>
       </section>
 
