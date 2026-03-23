@@ -2,258 +2,282 @@
 "use client";
 
 import content from "../data/content.json";
-import { MinimalNav } from "@/components/ui/minimal-nav";
-import { TrustBadges } from "@/components/ui/trust-badges";
-import { StatsSection } from "@/components/ui/stats-section";
-import { TestimonialGrid } from "@/components/ui/testimonial-grid";
-import { ServiceGrid } from "@/components/ui/service-grid";
+import { FloatingNav } from "@/components/ui/floating-nav";
+import { BentoGrid, BentoCard } from "@/components/ui/bento-grid";
+import { GoogleReviewBadge } from "@/components/ui/google-review-badge";
+import { NumberGrid } from "@/components/ui/number-grid";
+import { StackedCards } from "@/components/ui/stacked-cards";
+import { ReviewStars } from "@/components/ui/review-stars";
 import { StepsSection } from "@/components/ui/steps-section";
 import { HoursTable } from "@/components/ui/hours-table";
-import { FAQSection } from "@/components/ui/faq-section";
-import { BookingPrompt } from "@/components/ui/booking-prompt";
 import { MapEmbed } from "@/components/ui/map-embed";
-import { FooterGradient } from "@/components/ui/footer-gradient";
+import { FooterMinimal } from "@/components/ui/footer-minimal";
+import { FloatingCTA } from "@/components/ui/floating-cta";
+import { CTABanner } from "@/components/ui/cta-banner";
+import { GridPattern } from "@/components/ui/grid-pattern";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { GoogleReviewBadge } from "@/components/ui/google-review-badge";
-import { Shield, Wrench, Clock, CheckCircle, Award, Settings } from "lucide-react";
+import { ExperienceBadge } from "@/components/ui/experience-badge";
+import { Wrench, Cog, Droplets, Disc, CircleDot, Truck, Phone, MapPin, Clock, Star, Shield, ThumbsUp, Award } from "lucide-react";
+
+const serviceIcons = [Wrench, Cog, Droplets, Disc, CircleDot, Truck];
 
 export default function Page() {
   return (
     <main className="min-h-screen bg-background text-foreground">
-      {/* NAVIGATION */}
-      <MinimalNav
-        logo={
-          <span className="text-lg font-bold tracking-tight">
-            <span style={{ color: "var(--theme-accent)" }}>Crabtree</span> Automatics
-          </span>
-        }
+      {/* FLOATING NAV */}
+      <FloatingNav
+        logo={<span className="font-bold text-lg"><span style={{ color: "var(--theme-accent)" }}>Crabtree</span> Automatics</span>}
         items={[
-          { label: "Services", href: "#services" },
           { label: "Reviews", href: "#reviews" },
+          { label: "Services", href: "#services" },
           { label: "Process", href: "#process" },
-          { label: "FAQ", href: "#faq" },
+          { label: "About", href: "#about" },
           { label: "Hours", href: "#hours" },
         ]}
-        ctaText="Call Now"
-        ctaHref={"tel:" + content.contact.phone.replace(/[^0-9]/g, "")}
       />
 
-      {/* HERO — Pure CSS, no Framer Motion */}
-      <section className="min-h-[85vh] flex flex-col items-center justify-center px-6 text-center">
-        <span
-          className="mb-6 inline-block rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white animate-hero-fade-in"
-          style={{ backgroundColor: "var(--theme-accent)" }}
-        >
-          5-Star Rated Transmission Shop
-        </span>
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight max-w-5xl animate-hero-fade-in">
-          {content.hero.heading}
-        </h1>
-        <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl animate-hero-fade-in-delayed">
-          {content.hero.subheading}
-        </p>
-        <div className="mt-8 flex flex-wrap justify-center gap-4 animate-hero-fade-up">
-          <a
-            href={content.hero.ctaLink}
-            className="inline-flex items-center rounded-lg px-7 py-3 font-medium text-white transition-opacity hover:opacity-90"
-            style={{ backgroundColor: "var(--theme-accent)" }}
-          >
-            {content.hero.ctaText}
-          </a>
-          <a
-            href="#services"
-            className="inline-flex items-center rounded-lg border border-border bg-background px-7 py-3 font-medium transition-colors hover:bg-muted"
-          >
-            View Services
-          </a>
+      {/* HERO — INLINE (plain HTML + CSS animations, no Framer Motion) */}
+      <section className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28">
+        <GridPattern className="opacity-40" size={32} />
+        <div className="relative z-10 mx-auto max-w-5xl px-6">
+          <div className="flex flex-col items-center text-center">
+            <div
+              className="animate-hero-fade-in mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-medium"
+            >
+              <Star className="h-4 w-4" style={{ color: "var(--theme-accent)" }} />
+              <span>5.0 Stars on Google — 27 Reviews</span>
+            </div>
+            <h1 className="animate-hero-fade-in text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight">
+              Precision{" "}
+              <span style={{ color: "var(--theme-accent)" }}>Transmission</span>
+              <br />
+              Repair in Burbank
+            </h1>
+            <p className="animate-hero-fade-in-delayed mt-6 max-w-2xl text-lg md:text-xl text-muted-foreground">
+              {content.hero.subheading}
+            </p>
+            <div className="animate-hero-fade-up mt-8 flex flex-col sm:flex-row gap-4">
+              <a
+                href="tel:8188459117"
+                className="inline-flex items-center gap-2 rounded-lg px-8 py-4 text-lg font-semibold text-white transition-transform hover:scale-105 active:scale-95"
+                style={{ backgroundColor: "var(--theme-accent)" }}
+              >
+                <Phone className="h-5 w-5" />
+                Call (818) 845-9117
+              </a>
+              <a
+                href="#services"
+                className="inline-flex items-center gap-2 rounded-lg border-2 border-border px-8 py-4 text-lg font-semibold transition-colors hover:bg-muted"
+              >
+                View Services
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* TRUST BADGES */}
-      <section className="py-12 md:py-16">
-        <div className="max-w-6xl mx-auto px-6">
-          <TrustBadges
-            badges={[
-              { icon: <Shield className="w-5 h-5" />, text: "Warranty on All Repairs" },
-              { icon: <Award className="w-5 h-5" />, text: "5.0 Star Rating" },
-              { icon: <Wrench className="w-5 h-5" />, text: "Transmission Specialists" },
-              { icon: <Clock className="w-5 h-5" />, text: "Fast Turnaround" },
-              { icon: <CheckCircle className="w-5 h-5" />, text: "Honest Diagnostics" },
+      {/* REVIEWS / TRUST — Stats + Google Badge + Testimonials */}
+      <section id="reviews" className="py-20 md:py-28">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-8 mb-16">
+            <GoogleReviewBadge rating={5} totalReviews={27} />
+            <ExperienceBadge years={50} label="Years in Business" />
+          </div>
+
+          <NumberGrid
+            items={[
+              { value: 50, suffix: "+", label: "Years in Business" },
+              { value: 27, label: "5-Star Reviews" },
+              { value: 10000, suffix: "+", label: "Transmissions Rebuilt" },
+              { value: 100, suffix: "%", label: "Satisfaction Guaranteed" },
             ]}
+            columns={4}
+            className="mb-16"
           />
-        </div>
-      </section>
 
-      {/* STATS */}
-      <section className="py-20 md:py-28">
-        <div className="max-w-6xl mx-auto px-6">
-          <StatsSection
-            stats={[
-              { value: 27, label: "5-Star Reviews", suffix: "+" },
-              { value: 5, label: "Star Rating", suffix: ".0" },
-              { value: 1000, label: "Transmissions Serviced", suffix: "+" },
-              { value: 100, label: "Customer Satisfaction", suffix: "%" },
-            ]}
-          />
-        </div>
-      </section>
-
-      {/* REVIEWS */}
-      <section id="reviews" className="py-20 md:py-28 bg-card">
-        <div className="max-w-6xl mx-auto px-6">
           <SectionHeading
             title="What Our Customers Say"
-            subtitle="Real reviews from real customers who trusted us with their transmissions"
-            align="center"
+            subtitle="Real reviews from real Burbank drivers"
+            label="Testimonials"
           />
-          <div className="mt-6 mb-12 flex justify-center">
-            <GoogleReviewBadge rating={5.0} totalReviews={27} />
-          </div>
-          <TestimonialGrid
-            testimonials={content.reviews.map((r) => ({
-              quote: r.text,
-              author: r.name,
-              rating: r.rating,
-            }))}
-            columns={3}
+
+          <StackedCards
+            cards={content.reviews.map((r, i) => (
+              <div key={i}>
+                <ReviewStars rating={r.rating} size="md" />
+                <p className="mt-3 text-foreground italic leading-relaxed">&ldquo;{r.text}&rdquo;</p>
+                <p className="mt-3 text-sm font-semibold" style={{ color: "var(--theme-accent)" }}>
+                  — {r.name}
+                </p>
+              </div>
+            ))}
+            className="max-w-xl mx-auto"
           />
         </div>
       </section>
 
-      {/* SERVICES */}
-      <section id="services" className="py-20 md:py-28">
-        <div className="max-w-6xl mx-auto px-6">
+      {/* SERVICES — BENTO GRID (asymmetric cards) */}
+      <section id="services" className="relative py-20 md:py-28 bg-muted/30">
+        <div className="mx-auto max-w-6xl px-6">
           <SectionHeading
+            title="Our Services"
+            subtitle="Comprehensive transmission care for every vehicle"
             label="What We Do"
-            title="Transmission Services"
-            subtitle="From diagnostics to full rebuilds, we handle every aspect of transmission repair"
-            align="center"
           />
-          <div className="mt-12">
-            <ServiceGrid
-              services={content.services.map((s, i) => ({
-                title: s.title,
-                description: s.description,
-                icon: [
-                  <Settings key={0} className="w-6 h-6" style={{ color: "var(--theme-accent)" }} />,
-                  <Wrench key={1} className="w-6 h-6" style={{ color: "var(--theme-accent)" }} />,
-                  <CheckCircle key={2} className="w-6 h-6" style={{ color: "var(--theme-accent)" }} />,
-                  <Shield key={3} className="w-6 h-6" style={{ color: "var(--theme-accent)" }} />,
-                  <Settings key={4} className="w-6 h-6" style={{ color: "var(--theme-accent)" }} />,
-                  <Wrench key={5} className="w-6 h-6" style={{ color: "var(--theme-accent)" }} />,
-                ][i],
-              }))}
-              columns={3}
-              variant="card"
-            />
-          </div>
+
+          <BentoGrid className="grid-cols-1 md:grid-cols-3 auto-rows-[18rem] gap-4">
+            {content.services.map((service, i) => {
+              const Icon = serviceIcons[i] || Wrench;
+              const spanClass = i === 0
+                ? "md:col-span-2 md:row-span-1"
+                : i === 3
+                ? "md:col-span-2 md:row-span-1"
+                : "md:col-span-1 md:row-span-1";
+              return (
+                <BentoCard
+                  key={i}
+                  name={service.title}
+                  description={service.description}
+                  Icon={Icon}
+                  className={spanClass}
+                  background={<div className="absolute inset-0 opacity-5" style={{ background: `radial-gradient(circle at ${30 + i * 15}% ${20 + i * 10}%, var(--theme-accent), transparent 60%)` }} />}
+                  href="tel:8188459117"
+                  cta="Schedule Service"
+                />
+              );
+            })}
+          </BentoGrid>
         </div>
       </section>
 
-      {/* PROCESS / HOW IT WORKS */}
-      <section id="process" className="py-20 md:py-28 bg-card">
-        <div className="max-w-6xl mx-auto px-6">
+      {/* HOW IT WORKS */}
+      <section id="process" className="py-20 md:py-28">
+        <div className="mx-auto max-w-4xl px-6">
           <SectionHeading
             title="How It Works"
-            subtitle="Our straightforward process from diagnosis to getting you back on the road"
-            align="center"
+            subtitle="From diagnosis to road-ready — our straightforward process"
+            label="Our Process"
           />
-          <div className="mt-12">
-            <StepsSection
-              steps={[
-                {
-                  title: "Bring It In",
-                  description: "Drop off your vehicle or call ahead. We'll listen to your concerns and schedule a convenient time for diagnostics.",
-                },
-                {
-                  title: "Expert Diagnosis",
-                  description: "We run computer-assisted and hands-on tests to pinpoint the exact issue. You get a clear explanation and honest estimate.",
-                },
-                {
-                  title: "Precision Repair",
-                  description: "Our specialists fix the problem using quality parts and proven techniques — no shortcuts, no unnecessary upsells.",
-                },
-                {
-                  title: "Road Ready",
-                  description: "We test drive your vehicle, verify everything shifts smoothly, and hand you back the keys with a warranty on the work.",
-                },
-              ]}
-              variant="horizontal"
-            />
-          </div>
-        </div>
-      </section>
 
-      {/* ABOUT SECTION */}
-      <section id="about" className="py-20 md:py-28">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <SectionHeading
-                label="About Us"
-                title={content.about.heading}
-                align="left"
-              />
-              {content.about.paragraphs.map((p, i) => (
-                <p key={i} className="mt-4 text-muted-foreground leading-relaxed text-lg">
-                  {p}
-                </p>
-              ))}
-            </div>
-            <div className="space-y-4">
-              {content.about.highlights.map((h, i) => (
-                <div key={i} className="flex items-center gap-3 p-4 rounded-lg bg-card border border-border">
-                  <CheckCircle className="w-5 h-5 flex-shrink-0" style={{ color: "var(--theme-accent)" }} />
-                  <span className="font-medium">{h}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* BOOKING CTA */}
-      <BookingPrompt
-        heading="Transmission Trouble? Let's Fix It."
-        description="Call Crabtree Automatics for an honest diagnosis and expert repair. We'll get you back on the road."
-        phone={content.contact.phone}
-        ctaText="Call (818) 845-9117"
-        ctaHref={"tel:" + content.contact.phone.replace(/[^0-9]/g, "")}
-      />
-
-      {/* FAQ */}
-      <section id="faq" className="py-20 md:py-28 bg-card">
-        <div className="max-w-6xl mx-auto px-6">
-          <FAQSection
-            title="Frequently Asked Questions"
-            subtitle="Common questions about our transmission repair services"
-            items={content.faq}
+          <StepsSection
+            steps={[
+              { title: "Bring It In", description: "Drop off your vehicle or call us to describe the issue. We'll schedule a convenient time for inspection." },
+              { title: "Expert Diagnosis", description: "Our technicians run comprehensive computer diagnostics and physical inspections to identify the root cause." },
+              { title: "Transparent Quote", description: "We explain the problem in plain language, present your options, and give a written estimate — no surprises." },
+              { title: "Quality Repair", description: "We perform the repair using quality parts, test everything thoroughly, and get you back on the road." },
+            ]}
+            variant="vertical"
           />
         </div>
       </section>
 
-      {/* HOURS + MAP */}
-      <section id="hours" className="py-20 md:py-28">
-        <div className="max-w-6xl mx-auto px-6">
+      {/* ABOUT */}
+      <section id="about" className="relative py-20 md:py-28 bg-muted/30 overflow-hidden">
+        <GridPattern className="opacity-20" size={48} />
+        <div className="relative z-10 mx-auto max-w-6xl px-6">
           <SectionHeading
-            title="Visit Our Shop"
-            subtitle="Conveniently located on Magnolia Blvd in Burbank"
-            align="center"
+            title={content.about.heading}
+            subtitle={content.about.paragraphs[0]}
+            label="About Us"
           />
-          <div className="mt-12 grid md:grid-cols-2 gap-12">
-            <HoursTable hours={content.contact.hours} />
-            <MapEmbed query={content.contact.mapEmbedQuery} height={400} />
+
+          <p className="text-center text-muted-foreground max-w-2xl mx-auto mb-12 -mt-6">
+            {content.about.paragraphs[1]}
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
+            {content.about.highlights.map((item, i) => (
+              <div
+                key={i}
+                className="flex items-start gap-3 rounded-xl border border-border bg-card p-4"
+              >
+                <div
+                  className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg"
+                  style={{ backgroundColor: "var(--theme-accent)" }}
+                >
+                  {i === 0 ? <Shield className="h-4 w-4 text-white" /> :
+                   i === 1 ? <Cog className="h-4 w-4 text-white" /> :
+                   i === 2 ? <Award className="h-4 w-4 text-white" /> :
+                   <ThumbsUp className="h-4 w-4 text-white" />}
+                </div>
+                <p className="text-sm text-foreground leading-relaxed">{item}</p>
+              </div>
+            ))}
+          </div>
+
+          {content.gallery?.images?.length > 0 && (
+            <div className="mt-12 flex justify-center">
+              <img
+                src={content.gallery.images[0].src}
+                alt={content.gallery.images[0].alt}
+                className="rounded-xl border border-border shadow-lg max-w-md w-full object-cover"
+                loading="lazy"
+              />
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* CTA BANNER */}
+      <section className="py-12 md:py-16">
+        <div className="mx-auto max-w-5xl px-6">
+          <CTABanner
+            heading="Transmission Trouble? Let's Fix It."
+            subheading="Call now for a free consultation. Same-day diagnostics available Monday through Friday."
+            ctaText="Call (818) 845-9117"
+            ctaHref="tel:8188459117"
+            variant="filled"
+          />
+        </div>
+      </section>
+
+      {/* HOURS & MAP */}
+      <section id="hours" className="py-20 md:py-28 bg-muted/30">
+        <div className="mx-auto max-w-6xl px-6">
+          <SectionHeading
+            title="Visit Us"
+            subtitle="Located on Magnolia Boulevard in the heart of Burbank"
+            label="Hours & Location"
+          />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <div className="flex items-center gap-2 mb-4">
+                <Clock className="h-5 w-5" style={{ color: "var(--theme-accent)" }} />
+                <h3 className="font-semibold text-lg">Business Hours</h3>
+              </div>
+              <HoursTable hours={content.contact.hours} />
+            </div>
+            <div>
+              <div className="flex items-center gap-2 mb-4">
+                <MapPin className="h-5 w-5" style={{ color: "var(--theme-accent)" }} />
+                <h3 className="font-semibold text-lg">Find Us</h3>
+              </div>
+              <MapEmbed query={content.contact.mapEmbedQuery} height={340} />
+              <p className="mt-4 text-sm text-muted-foreground">
+                {content.contact.address}
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* FOOTER */}
-      <FooterGradient
-        businessName={content.businessName}
-        tagline={content.tagline}
-        phone={content.contact.phone}
-        email={content.contact.email}
-        address={content.contact.address}
+      <FooterMinimal
+        businessName="Crabtree Automatics"
+        links={[
+          { label: "Services", href: "#services" },
+          { label: "Reviews", href: "#reviews" },
+          { label: "Hours", href: "#hours" },
+          { label: "Facebook", href: "https://www.facebook.com/crabtreeautomatics/" },
+        ]}
+      />
+
+      {/* FLOATING CTA */}
+      <FloatingCTA
+        text="Call Now"
+        phone="(818) 845-9117"
+        showAfterScroll={400}
       />
     </main>
   );

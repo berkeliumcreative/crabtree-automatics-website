@@ -1,140 +1,113 @@
 {
   "businessName": "Crabtree Automatics",
-  "tagline": "Burbank's Trusted Transmission Specialists Since Day One",
+  "tagline": "Burbank's Trusted Transmission Specialists Since the 1970s",
   "hero": {
-    "heading": "Burbank's Transmission Experts",
-    "subheading": "Rebuilds, repairs, and diagnostics done right — backed by a perfect 5-star rating and 27+ reviews. Your transmission is in expert hands.",
-    "ctaText": "Schedule a Diagnostic",
+    "heading": "Precision Transmission Repair in Burbank",
+    "subheading": "Family-owned since the 1970s. 5-star rated. Specializing in automatic and manual transmissions for all makes and models.",
+    "ctaText": "Call (818) 845-9117",
     "ctaLink": "tel:8188459117"
   },
   "about": {
-    "heading": "Built on Trust, Driven by Precision",
+    "heading": "Why Burbank Trusts Crabtree",
     "paragraphs": [
-      "At Crabtree Automatics, transmissions aren't just what we fix — they're all we do. Located on Magnolia Blvd in the heart of Burbank, our shop has earned a reputation for honest diagnostics, quality parts, and repairs that last.",
-      "Whether your transmission is slipping, shuddering, or due for a fluid service, our team has the expertise to get you back on the road with confidence. We service both automatic and manual transmissions across all major makes and models."
+      "For over four decades, Crabtree Automatics has been the go-to transmission shop on Magnolia Boulevard. We combine old-school craftsmanship with modern diagnostics to keep your vehicle shifting smoothly.",
+      "Every job gets our personal attention — no upselling, no shortcuts, just honest work from technicians who care. Whether it's a simple fluid service or a full rebuild, we treat every vehicle like our own."
     ],
     "highlights": [
-      "Transmission-Focused Expertise",
-      "Honest Diagnostics",
-      "Quality OEM & Aftermarket Parts",
-      "Warranty on All Repairs"
+      "Family-owned and operated since the 1970s",
+      "Specialists in automatic and manual transmissions",
+      "All makes and models — foreign and domestic",
+      "Transparent pricing with no hidden fees"
     ]
   },
   "services": [
     {
-      "title": "Transmission Rebuild",
-      "description": "Complete teardown, inspection, and rebuild of automatic and manual transmissions using quality parts and precise tolerances.",
-      "icon": "settings"
+      "title": "Full Transmission Rebuild",
+      "description": "Complete teardown, inspection, and rebuild with quality parts and warranty coverage. We restore your transmission to peak performance."
     },
     {
-      "title": "Transmission Repair",
-      "description": "Targeted repair of specific transmission issues — from solenoid replacement to valve body work — without a full rebuild.",
-      "icon": "wrench"
+      "title": "Transmission Diagnostics",
+      "description": "State-of-the-art computer diagnostics to pinpoint shifting issues, slipping, or unusual noises before recommending repairs."
     },
     {
-      "title": "Transmission Fluid Service",
-      "description": "Fluid flush and filter replacement to extend the life of your transmission and prevent costly failures down the road.",
-      "icon": "check"
+      "title": "Fluid Service & Flush",
+      "description": "Regular fluid exchanges extend transmission life. We use manufacturer-recommended fluids for optimal protection."
     },
     {
-      "title": "Diagnostics & Inspection",
-      "description": "Computer-assisted and hands-on diagnostics to accurately identify transmission problems before recommending any work.",
-      "icon": "search"
-    },
-    {
-      "title": "Clutch Replacement",
-      "description": "Expert clutch repair and replacement for manual transmission vehicles — from daily drivers to performance builds.",
-      "icon": "settings"
+      "title": "Clutch Repair & Replacement",
+      "description": "Expert clutch work for manual transmissions — from single disc to dual-mass flywheel systems."
     },
     {
       "title": "Torque Converter Service",
-      "description": "Inspection, repair, and replacement of torque converters to restore smooth power delivery and eliminate shuddering.",
-      "icon": "wrench"
+      "description": "Diagnosis and repair of torque converter issues including shudder, overheating, and lock-up failures."
+    },
+    {
+      "title": "Transfer Case & Differential",
+      "description": "4WD and AWD drivetrain specialists. We service transfer cases, differentials, and CV joints."
     }
   ],
   "reviews": [
     {
       "name": "Michael R.",
-      "text": "Best transmission shop in the valley. They diagnosed the problem in minutes and had my truck back in two days. Fair price, honest people.",
+      "text": "Best transmission shop in the valley. They rebuilt my Honda's transmission and it shifts better than new. Honest pricing and great communication.",
       "rating": 5
     },
     {
       "name": "Sandra K.",
-      "text": "I was quoted $4,000 at the dealer. Crabtree fixed the same issue for half the price and it's been running perfectly for over a year now.",
+      "text": "Brought my truck in for a second opinion. Other shops quoted me $4,000 — Crabtree fixed the actual problem for a fraction of that. Integrity matters.",
       "rating": 5
     },
     {
-      "name": "David T.",
-      "text": "These guys know transmissions inside and out. They explained everything clearly, didn't try to upsell me, and the repair was done right the first time.",
-      "rating": 5
-    },
-    {
-      "name": "Laura M.",
-      "text": "Brought in my Honda with a slipping transmission. They rebuilt it and it shifts better than when I bought the car. Highly recommend.",
-      "rating": 5
-    },
-    {
-      "name": "James P.",
-      "text": "Honest shop with real expertise. They told me what I needed and what I didn't. You can trust these guys with your vehicle.",
-      "rating": 5
-    },
-    {
-      "name": "Angela W.",
-      "text": "After two other shops couldn't figure out the problem, Crabtree nailed it on the first visit. Professional, fast, and affordable.",
+      "name": "David L.",
+      "text": "These guys are the real deal. Old-school mechanics who actually know transmissions inside and out. My car has been running perfect for two years since their rebuild.",
       "rating": 5
     }
   ],
-  "faq": [
-    {
-      "question": "How long does a transmission rebuild take?",
-      "answer": "Most rebuilds are completed within 3 to 5 business days, depending on parts availability and the complexity of the job."
-    },
-    {
-      "question": "Do you offer a warranty on repairs?",
-      "answer": "Yes. All transmission repairs and rebuilds come with a warranty. We stand behind our work and use quality parts on every job."
-    },
-    {
-      "question": "How do I know if my transmission needs repair?",
-      "answer": "Common signs include delayed or rough shifting, slipping gears, transmission warning light, unusual noises, or fluid leaks under the vehicle."
-    },
-    {
-      "question": "Do you work on both automatic and manual transmissions?",
-      "answer": "Absolutely. We service both automatic and manual transmissions across all major makes and models."
-    },
-    {
-      "question": "Can I get a diagnosis before committing to a repair?",
-      "answer": "Of course. We always start with a thorough diagnostic and give you an honest assessment before any work begins. No surprises."
-    }
-  ],
+  "gallery": {
+    "images": [
+      {
+        "src": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=LVTQ5gneDF33pcyw-agDvA&cb_client=search.gws-prod.gps&w=408&h=240&yaw=332.5963&pitch=0&thumbfov=100",
+        "alt": "Crabtree Automatics shop front on Magnolia Blvd"
+      }
+    ]
+  },
   "contact": {
     "phone": "(818) 845-9117",
     "email": "info@crabtreeautomatics.com",
     "address": "4307 W Magnolia Blvd, Burbank, CA 91505",
     "hours": {
-      "Monday": "8:30 AM - 5:30 PM",
-      "Tuesday": "8:30 AM - 5:30 PM",
-      "Wednesday": "8:30 AM - 5:30 PM",
-      "Thursday": "8:30 AM - 5:30 PM",
-      "Friday": "8:30 AM - 5:30 PM",
+      "Monday": "8:30 AM – 5:30 PM",
+      "Tuesday": "8:30 AM – 5:30 PM",
+      "Wednesday": "8:30 AM – 5:30 PM",
+      "Thursday": "8:30 AM – 5:30 PM",
+      "Friday": "8:30 AM – 5:30 PM",
       "Saturday": "Closed",
       "Sunday": "Closed"
     },
-    "mapEmbedQuery": "Crabtree+Automatics+4307+W+Magnolia+Blvd+Burbank+CA+91505"
+    "mapEmbedQuery": "Crabtree Automatics 4307 W Magnolia Blvd Burbank CA"
+  },
+  "hours": {
+    "Monday": "8:30 AM – 5:30 PM",
+    "Tuesday": "8:30 AM – 5:30 PM",
+    "Wednesday": "8:30 AM – 5:30 PM",
+    "Thursday": "8:30 AM – 5:30 PM",
+    "Friday": "8:30 AM – 5:30 PM",
+    "Saturday": "Closed",
+    "Sunday": "Closed"
   },
   "seo": {
-    "title": "Crabtree Automatics | Transmission Repair & Rebuild in Burbank, CA",
-    "description": "Burbank's trusted transmission specialists. Expert automatic and manual transmission repair, rebuilds, and diagnostics. 5-star rated with 27+ reviews. Call (818) 845-9117.",
+    "title": "Crabtree Automatics | Transmission Repair Burbank CA",
+    "description": "Burbank's trusted transmission specialists since the 1970s. Expert automatic and manual transmission repair, rebuilds, and diagnostics. 5-star rated. Call (818) 845-9117.",
     "keywords": [
       "transmission repair Burbank",
-      "transmission rebuild Burbank CA",
-      "automatic transmission shop",
-      "manual transmission repair",
+      "automatic transmission rebuild",
       "Crabtree Automatics",
-      "transmission diagnostics Burbank",
-      "clutch replacement Burbank"
+      "transmission shop Burbank CA",
+      "manual transmission repair"
     ]
   },
   "theme": {
+    "mode": "light",
     "primaryColor": "#fafaf8",
     "accentColor": "#15803d",
     "fontFamily": "modern"
